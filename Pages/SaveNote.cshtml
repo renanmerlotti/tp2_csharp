@@ -1,0 +1,26 @@
+﻿@page
+@model questao1.Pages.SaveNoteModel
+@{
+    ViewData["Title"] = "Salvar Nota";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+<form method="post">
+    <div>
+        <label asp-for="Input.Content"></label>
+        <textarea asp-for="Input.Content" rows="5"></textarea>
+        <span asp-validation-for="Input.Content"></span>
+    </div>
+    <button type="submit">Salvar</button>
+</form>
+
+@if (Model.SavedFileName != null)
+{
+    <p>Arquivo salvo com sucesso</p>
+    <a href="/files/@Model.SavedFileName" download>Baixar nota</a>
+}
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

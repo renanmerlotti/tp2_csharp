@@ -1,0 +1,9 @@
+﻿@page
+@model questao1.Pages.ViewNoteModel
+@{
+    ViewData["Title"] = "Conteúdo da Nota";
+}
+
+<h2>@ViewData["Title"]</h2>
+<pre>@Model.NoteFiles</pre>
+<a asp-page="./ViewNote">Voltar para lista</a>

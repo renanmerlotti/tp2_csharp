@@ -1,0 +1,15 @@
+﻿@page
+@model questao1.Pages.CityManager.CityDetailsModel
+@{
+    ViewData["Title"] = "Detalhes da Cidade";
+}
+
+<h2>@ViewData["Title"]</h2>
+<ul>
+    @foreach (var city in Model.Cities)
+    {
+        <li>
+            <a asp-page="CityDetails" asp-route-cityName="@city">@city</a>
+        </li>
+    }
+</ul>

@@ -1,0 +1,23 @@
+﻿@page
+@model questao1.Pages.CityManager.CreateCityModel
+@{
+    ViewData["Title"] = "Cadastrar Cidade Turística";
+}
+<h2>@ViewData["Title"]</h2>
+
+<form method="post">
+    <div>
+        <label>Nome da Cidade:</label>
+        <input asp-for="Input.CityName" />
+        <span asp-validation-for="Input.CityName"></span>
+    </div>
+    <button type="submit">Enviar</button>
+</form>
+
+@if (ModelState.IsValid && HttpContext.Request.Method == "POST")
+{
+    <p>@Model.Input.CityName</p>
+}
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

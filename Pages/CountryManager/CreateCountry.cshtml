@@ -1,0 +1,41 @@
+﻿@page
+@model questao1.Pages.CountryManager.CreateCountryModel
+@{
+    ViewData["Title"] = "Cadastrar Pais";
+}
+<h2>@ViewData["Title"]</h2>
+
+<form method="post">
+    @for (int i = 0; i < 5; i++)
+    {
+        <div class="country-entry">
+            <h4>País @(i + 1)</h4>
+            <div>
+                <label asp-for="Countries[i].CountryName"></label>
+                <input asp-for="Countries[i].CountryName" />
+                <span asp-validation-for="Countries[i].CountryName"></span>
+            </div>
+            <div>
+                <label asp-for="Countries[i].CountryCode"></label>
+                <input asp-for="Countries[i].CountryCode" />
+                <span asp-validation-for="Countries[i].CountryCode"></span>
+            </div>
+        </div>
+    }
+    <button type="submit">Enviar Todos</button>
+</form>
+
+@if (Model.SubmittedCountries != null && Model.SubmittedCountries.Any())
+{
+    <h3>Países Cadastrados:</h3>
+    <ul>
+        @foreach (var country in Model.SubmittedCountries)
+        {
+            <li>@country.CountryName (@country.CountryCode)</li>
+        }
+    </ul>
+}
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

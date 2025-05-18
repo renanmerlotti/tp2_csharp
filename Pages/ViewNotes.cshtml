@@ -1,0 +1,23 @@
+﻿@page
+@model questao1.Pages.ViewNotesModel
+@{
+    ViewData["Title"] = "Visualizar Notas";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+@if (Model.NoteFiles.Any())
+{
+    <ul>
+        @foreach (var file in Model.NoteFiles)
+        {
+            <li>
+                <a asp-page="./ViewNote" asp-route-fileName="@file.Name">@file.Name</a>
+            </li>
+        }
+    </ul>
+}
+else
+{
+    <p>Nenhuma nota encontrada.</p>
+}
